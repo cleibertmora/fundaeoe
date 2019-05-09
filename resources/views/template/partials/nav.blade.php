@@ -150,3 +150,43 @@
     </div>
   </div>
 </div>
+
+@if (!Auth::guest())
+
+  @if (Auth::user()->admin())
+
+  <div class="tasa">
+    
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="alert alert-danger" role="alert">
+          
+          
+  
+          <form class="form-inline" action="" id="tasaCambio">
+            <div class="form-group">
+              <label for="exampleInputName2"><span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span><b> Fijar Tasa de Cambio del Día</b>: $1 = a Bs.</label>
+              <input type="number" class="form-control" id="tasaValue" placeholder="3000.00">
+            </div>
+            <button type="submit" class="btn btn-primary">Fijar</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  @endif
+
+@endif
+
+
+@section('custom_js')
+
+  </script>
+  <script type="text/javascript">
+    var exchangeUrl = '{{ URL::route('fijarTasa') }}';
+  </script>
+
+@endsection

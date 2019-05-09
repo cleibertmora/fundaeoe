@@ -1,5 +1,7 @@
 jQuery(function($) {'use strict';
 
+	//var exchangeUrl = '{{ URL::route('fijarTasa') }}';
+
 	// Navigation Scroll
 	$(window).scroll(function(event) {
 		Scroll();
@@ -212,4 +214,31 @@ jQuery(function($) {'use strict';
 	}
 	//google.maps.event.addDomListener(window, 'load', initialize_map);
 
+});
+
+$("#tasaCambio").submit(function(){
+ 
+	var tasaValue   = $('#tasaValue').val();
+	
+	
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+
+	$.ajax({
+	        	type     : 'POST',
+                url      : exchangeUrl,
+                dataType : 'json',
+                data: {
+                	tasa: tasaValue	
+                },
+	        success: function(data){
+				console.log(data);
+	    	},
+	    	error: function (data) {
+            	console.log('Error:', data);
+        	}
+        });
 });

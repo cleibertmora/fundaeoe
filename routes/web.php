@@ -111,6 +111,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
 	//Route::get('/tickets-list',               ['uses' => 'TicketController@list',        'as' => 'tickets.list']);
 
+	Route::post('/tasa-cambio/ajax/', array('as' => 'fijarTasa', 'uses' => 'ExchangeController@set'));
+
 
 //	Route::post('/certificados/ajax/{id}', 'CertificateController@cedula')->name('traerNombre');
 
