@@ -1,0 +1,14 @@
+/node_modules
+/public/storage
+/public/hot
+/storage/*.key
+/.idea
+Homestead.json
+Homestead.yaml
+.env
+/public/images/bancos
+/nbproject/private/
+/vendor
+/tests
+/public/certificados
+/public/albums

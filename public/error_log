@@ -1,0 +1,2 @@
+[30-Aug-2018 18:15:37 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/paraepym/fundaeoe.cleibertmora.com/storage/framework/views/d348c986aba61f764205b604f07ab967f1286bd3.php on line 33
+[22-Oct-2018 12:06:34 UTC] PHP Parse error:  syntax error, unexpected 'list' (T_LIST), expecting identifier (T_STRING) in /home/fundqgyz/fundaeoe.org/app/Http/Controllers/TicketController.php on line 46
