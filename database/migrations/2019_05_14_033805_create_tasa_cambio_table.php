@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExchangeTable extends Migration
+class CreateTasaCambioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateExchangeTable extends Migration
      */
     public function up()
     {
-        Schema::create('exchange', function (Blueprint $table) {
-            $table->float('amount', 20, 10)->nullable();
+        Schema::create('tasa_cambio', function (Blueprint $table) {
+
+            $table->increments('id');
+            $table->float('amount', 20, 2)->nullable();
+            $table->timestamps();
+
         });
     }
 
@@ -25,6 +29,6 @@ class CreateExchangeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exchange');
+        Schema::dropIfExists('tasa_cambio');
     }
 }

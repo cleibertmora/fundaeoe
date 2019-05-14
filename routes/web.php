@@ -113,6 +113,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
 	Route::post('/tasa-cambio/ajax/', array('as' => 'fijarTasa', 'uses' => 'ExchangeController@set'));
 
+	Route::post('/tasa-cambio/ajax/get', array('as' => 'fijarTasaGet', 'uses' => 'ExchangeController@get'));
 
 //	Route::post('/certificados/ajax/{id}', 'CertificateController@cedula')->name('traerNombre');
 

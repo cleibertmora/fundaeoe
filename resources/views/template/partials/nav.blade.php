@@ -161,11 +161,11 @@
       <div class="col-md-12 text-center">
         <div class="alert alert-danger" role="alert">
           
-          
+        <input type="hidden" value="{{ route('fijarTasaGet') }}" id="getTasaUrl">
   
-          <form class="form-inline" action="" id="tasaCambio">
+          <form class="form-inline" action="{{ route('fijarTasa') }}" id="tasaCambio">
             <div class="form-group">
-              <label for="exampleInputName2"><span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span><b> Fijar Tasa de Cambio del Día</b>: $1 = a Bs.</label>
+              <label for="tasaValue"><span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span><b> Fijar Tasa de Cambio del Día</b>: $1 = a Bs.</label>
               <input type="number" class="form-control" id="tasaValue" placeholder="3000.00">
             </div>
             <button type="submit" class="btn btn-primary">Fijar</button>
@@ -180,13 +180,3 @@
   @endif
 
 @endif
-
-
-@section('custom_js')
-
-  </script>
-  <script type="text/javascript">
-    var exchangeUrl = '{{ URL::route('fijarTasa') }}';
-  </script>
-
-@endsection

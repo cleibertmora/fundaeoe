@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Exchange extends Model
 {
-    protected $table = 'exchange';
+    protected $table = 'tasa_cambio';
     protected $fillable = [
         'amount', 
     ];

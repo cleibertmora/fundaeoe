@@ -1,5 +1,7 @@
 jQuery(function($) {'use strict';
 
+	getTasaCambio();
+
 	//var exchangeUrl = '{{ URL::route('fijarTasa') }}';
 
 	// Navigation Scroll
@@ -216,10 +218,12 @@ jQuery(function($) {'use strict';
 
 });
 
-$("#tasaCambio").submit(function(){
+$("#tasaCambio").submit(function(e){
  
-	var tasaValue   = $('#tasaValue').val();
-	
+ 	e.preventDefault();
+
+	var tasaValue        = $('#tasaValue').val();
+	var ajaxPathExchange = $('#tasaCambio').attr('action');
 	
 	$.ajaxSetup({
 		headers: {
@@ -229,9 +233,10 @@ $("#tasaCambio").submit(function(){
 
 	$.ajax({
 	        	type     : 'POST',
-                url      : exchangeUrl,
+                url      : ajaxPathExchange,
                 dataType : 'json',
                 data: {
+                	'_token': $('meta[name="csrf-token"]').attr('content'),
                 	tasa: tasaValue	
                 },
 	        success: function(data){
@@ -242,3 +247,35 @@ $("#tasaCambio").submit(function(){
         	}
         });
 });
+
+
+function getTasaCambio(){
+
+	var ajaxGetExchange = $('#getTasaUrl').val();
+	//var setInputTasa    = $('tasaValue');
+
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+
+	$.ajax({
+        	type     : 'POST',
+            url      : ajaxGetExchange,
+            dataType : 'json',
+            data: {
+            	'_token': $('meta[name="csrf-token"]').attr('content'),
+            	//tasa: tasaValue	
+            },
+        success: function(data){
+			//console.log(data);
+			let rate_id = data[0].id;
+			let rate    = data[0].amount;
+			$('tasaValue').val(rate);
+    	},
+    	error: function (data) {
+        	console.log('Error:', data);
+    	}
+    });
+}
