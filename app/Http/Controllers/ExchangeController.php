@@ -12,10 +12,11 @@ class ExchangeController extends Controller
     public function set(Request $request)
     {
     	$rate     = $request->tasa;
+    	$id     = $request->id;
     	
     	if($rate){
 			
-			$exchange = new Exchange();
+			$exchange = Exchange::find($id);
 			$exchange->amount = $rate;
 			$exchange->save();
 			return response ()->json ( $exchange );

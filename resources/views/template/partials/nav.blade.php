@@ -167,6 +167,7 @@
             <div class="form-group">
               <label for="tasaValue"><span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span><b> Fijar Tasa de Cambio del Día</b>: $1 = a Bs.</label>
               <input type="number" class="form-control" id="tasaValue" placeholder="3000.00">
+              <input type="text" name="idTasaCambio" id="idTasaCambio" hidden>
             </div>
             <button type="submit" class="btn btn-primary">Fijar</button>
           </form>

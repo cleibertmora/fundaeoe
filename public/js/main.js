@@ -224,6 +224,7 @@ $("#tasaCambio").submit(function(e){
 
 	var tasaValue        = $('#tasaValue').val();
 	var ajaxPathExchange = $('#tasaCambio').attr('action');
+	var idTasaCambio     = $('#idTasaCambio').val();
 	
 	$.ajaxSetup({
 		headers: {
@@ -237,10 +238,12 @@ $("#tasaCambio").submit(function(e){
                 dataType : 'json',
                 data: {
                 	'_token': $('meta[name="csrf-token"]').attr('content'),
-                	tasa: tasaValue	
+                	tasa: tasaValue,
+                	id  : idTasaCambio 
                 },
 	        success: function(data){
-				console.log(data);
+				//console.log(data);
+	    		getTasaCambio();
 	    	},
 	    	error: function (data) {
             	console.log('Error:', data);
@@ -272,7 +275,8 @@ function getTasaCambio(){
 			//console.log(data);
 			let rate_id = data[0].id;
 			let rate    = data[0].amount;
-			$('tasaValue').val(rate);
+			$('#tasaValue').val(rate);
+			$('#idTasaCambio').val(rate_id);
     	},
     	error: function (data) {
         	console.log('Error:', data);
