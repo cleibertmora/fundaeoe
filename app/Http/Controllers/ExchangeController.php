@@ -12,7 +12,7 @@ class ExchangeController extends Controller
     public function set(Request $request)
     {
     	$rate     = $request->tasa;
-    	$id     = $request->id;
+    	$id       = $request->id;
     	
     	if($rate){
 			

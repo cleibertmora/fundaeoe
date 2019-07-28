@@ -24,6 +24,7 @@ use App\Etapa;
 
 use App\CliPaq;
 
+use App\Exchange;
 
 
 class EventoController extends Controller
@@ -55,6 +56,8 @@ class EventoController extends Controller
     public function store(Request $request)
 
     {
+
+        $tasaCambio = $this->getExchangeRate();
 
         $evento = new Evento($request->all());
 
@@ -91,6 +94,9 @@ class EventoController extends Controller
         $evento->fechaI =  \DateTime::createFromFormat('d/m/Y', $evento->fechaI)->format('Y-m-d');
 
         $evento->fechaF =  \DateTime::createFromFormat('d/m/Y', $evento->fechaF)->format('Y-m-d');
+
+        if($request->valorDolar)
+            $evento->costo  = $request->valorDolar * $tasaCambio;
 
         $evento->save();
 
@@ -367,6 +373,7 @@ class EventoController extends Controller
     public function add_paquete(Request $request)
 
     {
+        $tasaCambio = $this->getExchangeRate();
 
         $evento                = Evento::find($request->id);
 
@@ -380,7 +387,11 @@ class EventoController extends Controller
 
         $paquete->detalles     = $request->detalles;
 
-        $paquete->costo        = $request->costo;
+        if($request->valorDolar){
+            $paquete->costo  = $request->valorDolar * $tasaCambio;
+        }else{
+            $paquete->costo  = $request->costo;
+        }
 
         $paquete->vence        = \DateTime::createFromFormat('d/m/Y', $request->vence)->format('Y-m-d');
 
@@ -417,6 +428,7 @@ class EventoController extends Controller
     public function add_etapa(Request $request)
 
     {
+        $tasaCambio = $this->getExchangeRate();
 
         $evento                = Evento::find($request->id);
 
@@ -432,7 +444,11 @@ class EventoController extends Controller
 
         $etapa->descuento      = $request->descuento;
 
-        $etapa->costo          = $request->costo;
+        if($request->valorDolar){
+            $etapa->costo  = $request->valorDolar * $tasaCambio;
+        }else{
+            $etapa->costo  = $request->costo;
+        }
 
         $etapa->financiamiento = $request->financiamiento;
 
@@ -463,6 +479,16 @@ class EventoController extends Controller
     }
 
 
+    public function getExchangeRate()
+    {
+        $exchange = Exchange::orderBy('id')->first();
+
+        $tasa     = $exchange->amount; 
+
+//        dd($tasa);
+
+        return $tasa;
+    }
 
 }
 

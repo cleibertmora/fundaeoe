@@ -115,6 +115,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
 	Route::post('/tasa-cambio/ajax/get', array('as' => 'fijarTasaGet', 'uses' => 'ExchangeController@get'));
 
+	// Route::get('/tasa-cambio/pruebas', array('as' => 'pruebaTasas', 'uses' => 'EventoController@getExchangeRate'));
+
 //	Route::post('/certificados/ajax/{id}', 'CertificateController@cedula')->name('traerNombre');
 
 });

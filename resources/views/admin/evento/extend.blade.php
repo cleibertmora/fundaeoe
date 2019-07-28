@@ -184,6 +184,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        {!! Form::label('valorDolar','Valor en dolares:', ['class' => 'col-sm-2 control-label']) !!}
+                        <div class="col-sm-7">
+                            {!! Form::text('valorDolar', null, ['class' => 'form-control', 'required', 'placeholder' => 'Valor en dolares' ]) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
                         {!! Form::label('detalles','Detalles:', ['class' => 'col-sm-2 control-label']) !!}
                         <div class="col-sm-10">
                             {!! Form::textarea('detalles', null, ['class' => 'form-control', 'required', 'placeholder' => 'Detalles del Paquete', 'id' => 'mytextareapq' ]) !!}
@@ -280,7 +286,13 @@
                                         </div>
                                         {!! Form::label('costo','Costo:', ['class' => 'col-sm-1 control-label']) !!}
                                         <div class="col-sm-2">
-                                            {!! Form::text('costo', null, ['class' => 'form-control', 'required', 'placeholder' => 'Costo' ]) !!}
+                                            {!! Form::text('costo', null, ['class' => 'form-control', 'placeholder' => 'Costo' ]) !!}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        {!! Form::label('valorDolar','Valor en dolares:', ['class' => 'col-sm-2 control-label']) !!}
+                                        <div class="col-sm-7">
+                                            {!! Form::text('valorDolar', null, ['class' => 'form-control', 'placeholder' => 'Valor en dolares' ]) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
