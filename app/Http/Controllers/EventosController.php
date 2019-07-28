@@ -16,6 +16,7 @@ use App\Banco;
 use App\Politica;
 use App\Cuenta;
 use App\Pago;
+use App\Exchange;
 use App\User;
 
 class EventosController extends Controller
@@ -109,10 +110,16 @@ class EventosController extends Controller
         $evento = Evento::find($id);
         $bancos = Banco::all();
         $dollar = 1;
+        $tasaCambio = $this->getExchangeRate();
+
+
+        dd($tasaCambio);
+
         return view('eventos.evento')
             ->with('evento',$evento)
             ->with('bancos',$bancos)
-            ->with('dollar',$dollar);
+            ->with('dollar',$dollar)
+            ->with('tasaCambio',$tasaCambio);
     }
 
     public function misEventos()
@@ -333,6 +340,17 @@ class EventosController extends Controller
             ->with('fPago', $fPago)
             ->with('bancos', $bancos)
             ->with('bancosI', $bancosI);
+    }
+
+    public function getExchangeRate()
+    {
+        $exchange = Exchange::orderBy('id')->first();
+
+        $tasa     = $exchange->amount; 
+
+//        dd($tasa);
+
+        return $tasa;
     }
 
 }

@@ -8,7 +8,7 @@ class Evento extends Model
 {
    	protected $table = 'eventos';
     protected $fillable = [
-        'titulo', 'type', 'fechaI', 'fechaF', 'capacidad', 'horasA', 'horasC', 'notas', 'direccion', 'gps1', 'gps2', 'condicion', 'costo', 'mapa', 'afiche', 'banner', 'participacion', 'MonedaCambio', 'Moneda', 'inicial', 'ncuotas',
+        'titulo', 'type', 'fechaI', 'fechaF', 'capacidad', 'horasA', 'horasC', 'notas', 'direccion', 'gps1', 'gps2', 'condicion', 'costo', 'mapa', 'afiche', 'banner', 'participacion', 'monedaCambio', 'Moneda', 'inicial', 'ncuotas',
     ];
 
     public function Paquetes() {

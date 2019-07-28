@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddMonedaCambioPaquete extends Migration
+class AddValorDolarToEventos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddMonedaCambioPaquete extends Migration
      */
     public function up()
     {
-        Schema::table('paquetes', function (Blueprint $table) {
-            $table->float('monedaCambio', 10, 2)->after('costo');
+        Schema::table('eventos', function (Blueprint $table) {
+            $table->float('valorDolar', 10, 2)->after('costo');
         });
     }
 
@@ -25,8 +25,8 @@ class AddMonedaCambioPaquete extends Migration
      */
     public function down()
     {
-        Schema::table('paquetes', function (Blueprint $table) {
-            $table->float('monedaCambio', 10, 2);
+        Schema::table('eventos', function (Blueprint $table) {
+            $table->float('valorDolar', 10, 2);
         });
     }
 }

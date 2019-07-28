@@ -8,7 +8,7 @@ class Etapa extends Model
 {
    	protected $table = 'etapa';
     protected $fillable = [
-        'tipo', 'evento_id', 'paquete_id', 'titulo','financiamiento', 'descuento', 'costo', 'fechaI', 'fechaF',
+        'tipo', 'evento_id', 'paquete_id', 'titulo','financiamiento', 'descuento', 'costo', 'monedaCambio', 'fechaI', 'fechaF',
     ];
 
     public function Evento() {

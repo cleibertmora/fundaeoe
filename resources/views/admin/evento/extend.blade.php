@@ -122,7 +122,7 @@
                                 <td style="vertical-align:middle; text-align:left;">
                                     <a type="button" class="btn btn-info" data-toggle="modal" data-target="#pqt{{ $paquete->id }}">Ver Detalle</a>
                                 </td>
-                                <td style="vertical-align:middle">{{ number_format($paquete->costo, 2, ",", ".") }}</td>
+                                <td align="center" style="vertical-align:middle">{{ number_format($paquete->costo, 2, ",", ".") }}</td>
                                 <td style="vertical-align:middle">{{ date_format(date_create($paquete->vence), 'd-m-Y') }}</td>
                                 <td style="vertical-align:middle">{{ $paquete->persona }}</td>
                                 <td style="vertical-align:middle">{{ $paquete->aplicable }}</td>
@@ -181,12 +181,6 @@
                         {!! Form::label('costo','Costo:', ['class' => 'col-sm-1 control-label']) !!}
                         <div class="col-sm-2">
                             {!! Form::text('costo', null, ['class' => 'form-control', 'required', 'placeholder' => 'Costo' ]) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('valorDolar','Valor en dolares:', ['class' => 'col-sm-2 control-label']) !!}
-                        <div class="col-sm-7">
-                            {!! Form::text('valorDolar', null, ['class' => 'form-control', 'required', 'placeholder' => 'Valor en dolares' ]) !!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -287,12 +281,6 @@
                                         {!! Form::label('costo','Costo:', ['class' => 'col-sm-1 control-label']) !!}
                                         <div class="col-sm-2">
                                             {!! Form::text('costo', null, ['class' => 'form-control', 'placeholder' => 'Costo' ]) !!}
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        {!! Form::label('valorDolar','Valor en dolares:', ['class' => 'col-sm-2 control-label']) !!}
-                                        <div class="col-sm-7">
-                                            {!! Form::text('valorDolar', null, ['class' => 'form-control', 'placeholder' => 'Valor en dolares' ]) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">

@@ -95,8 +95,8 @@ class EventoController extends Controller
 
         $evento->fechaF =  \DateTime::createFromFormat('d/m/Y', $evento->fechaF)->format('Y-m-d');
 
-        if($request->valorDolar)
-            $evento->costo  = $request->valorDolar * $tasaCambio;
+        // if($request->monedaCambio)
+        //     $evento->costo  = $request->valorDolar * $tasaCambio;
 
         $evento->save();
 
@@ -161,6 +161,8 @@ class EventoController extends Controller
         $evento->Moneda = $request->Moneda;
 
         $evento->MonedaCambio = $request->MonedaCambio;
+
+        $evento->valorDolar = $request->valorDolar;
 
         $evento->mapa = $request->mapa;
 
@@ -373,8 +375,6 @@ class EventoController extends Controller
     public function add_paquete(Request $request)
 
     {
-        $tasaCambio = $this->getExchangeRate();
-
         $evento                = Evento::find($request->id);
 
         $paquete               = new Paquete();
@@ -387,11 +387,11 @@ class EventoController extends Controller
 
         $paquete->detalles     = $request->detalles;
 
-        if($request->valorDolar){
-            $paquete->costo  = $request->valorDolar * $tasaCambio;
-        }else{
-            $paquete->costo  = $request->costo;
-        }
+        // if($request->valorDolar){
+        //     $paquete->costo  = $request->valorDolar * $tasaCambio;
+        // }else{
+        $paquete->costo  = $request->costo;
+        // }
 
         $paquete->vence        = \DateTime::createFromFormat('d/m/Y', $request->vence)->format('Y-m-d');
 
@@ -428,8 +428,6 @@ class EventoController extends Controller
     public function add_etapa(Request $request)
 
     {
-        $tasaCambio = $this->getExchangeRate();
-
         $evento                = Evento::find($request->id);
 
         $etapa                 = new Etapa();
@@ -444,11 +442,11 @@ class EventoController extends Controller
 
         $etapa->descuento      = $request->descuento;
 
-        if($request->valorDolar){
-            $etapa->costo  = $request->valorDolar * $tasaCambio;
-        }else{
-            $etapa->costo  = $request->costo;
-        }
+        // if($request->valorDolar){
+        //     $etapa->costo  = $request->valorDolar * $tasaCambio;
+        // }else{
+        $etapa->costo  = $request->costo;
+        // }
 
         $etapa->financiamiento = $request->financiamiento;
 
