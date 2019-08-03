@@ -108,6 +108,7 @@
                     <th width="36%">Título</th>
                     <th width="10%" style="text-align:center;">Detalle</th>
                     <th width="10%" style="text-align:center;">Costo</th>
+                    <th width="10%" style="text-align:center;">Valor en $</th>
                     <th width="10%" style="text-align:center;">Vence</th>
                     <th width="10%" style="text-align:center;">Persona</th>
                     <th width="10%" style="text-align:center;">Aplicable</th>
@@ -123,6 +124,7 @@
                                     <a type="button" class="btn btn-info" data-toggle="modal" data-target="#pqt{{ $paquete->id }}">Ver Detalle</a>
                                 </td>
                                 <td align="center" style="vertical-align:middle">{{ number_format($paquete->costo, 2, ",", ".") }}</td>
+                                <td align="center" style="vertical-align:middle">{{ number_format($paquete->valorDolar, 2, ",", ".") }}</td>
                                 <td style="vertical-align:middle">{{ date_format(date_create($paquete->vence), 'd-m-Y') }}</td>
                                 <td style="vertical-align:middle">{{ $paquete->persona }}</td>
                                 <td style="vertical-align:middle">{{ $paquete->aplicable }}</td>
@@ -175,12 +177,16 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('titulo','Título:', ['class' => 'col-sm-2 control-label']) !!}
-                        <div class="col-sm-7">
+                        <div class="col-sm-5">
                             {!! Form::text('titulo', null, ['class' => 'form-control', 'required', 'placeholder' => 'Título del Paquete' ]) !!}
                         </div>
                         {!! Form::label('costo','Costo:', ['class' => 'col-sm-1 control-label']) !!}
-                        <div class="col-sm-2">
+                        <div class="col-sm-1">
                             {!! Form::text('costo', null, ['class' => 'form-control', 'required', 'placeholder' => 'Costo' ]) !!}
+                        </div>
+                        {!! Form::label('valorDolar','$:', ['class' => 'col-sm-1 control-label']) !!}
+                        <div class="col-sm-2">
+                            {!! Form::text('valorDolar', null, ['class' => 'form-control', 'required', 'placeholder' => 'Valor en $' ]) !!}
                         </div>
                     </div>
                     <div class="form-group">
@@ -237,6 +243,7 @@
                                     <th width="47%">Etapa</th>
                                     <th class="text-center" width="12%">Descuento %</th>
                                     <th class="text-center" width="12%">Costo</th>
+                                    <th class="text-center" width="12%">Valor en $</th>
                                     <th class="text-center" width="12%">Fecha Inicio</th>
                                     <th class="text-center" width="12%">Fecha Límite</th>
                                     <th width="5%"></th>
@@ -247,6 +254,7 @@
                                             <td>{{$etapa->titulo }}</td>
                                             <td align="center">{{ $etapa->descuento }}</td>
                                             <td align="right"> {{ number_format($paquete->costo, 2, ",", ".") }}</td>
+                                            <td align="right"> {{ number_format($paquete->valorDolar, 2, ",", ".") }}</td>
                                             <td align="center">{{ date_format(date_create($etapa->fechaI), 'd-m-Y') }}</td>
                                             <td align="center">{{ date_format(date_create($etapa->fechaF), 'd-m-Y') }}</td>
                                             <td style="vertical-align:middle">
@@ -275,12 +283,16 @@
                                     </div>
                                     <div class="form-group">
                                         {!! Form::label('titulo','Etapa:', ['class' => 'col-sm-2 control-label']) !!}
-                                        <div class="col-sm-7">
+                                        <div class="col-sm-5">
                                             {!! Form::text('titulo', null, ['class' => 'form-control', 'required', 'placeholder' => 'Título de la Etapa' ]) !!}
                                         </div>
                                         {!! Form::label('costo','Costo:', ['class' => 'col-sm-1 control-label']) !!}
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-1">
                                             {!! Form::text('costo', null, ['class' => 'form-control', 'placeholder' => 'Costo' ]) !!}
+                                        </div>
+                                        {!! Form::label('valorDolar','$:', ['class' => 'col-sm-1 control-label']) !!}
+                                        <div class="col-sm-2">
+                                            {!! Form::text('valorDolar', null, ['class' => 'form-control', 'required', 'placeholder' => 'Valor en $' ]) !!}
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -337,6 +349,7 @@
                     <th width="36%">Título</th>
                     <th width="10%" style="text-align:center;">Detalle</th>
                     <th width="10%" style="text-align:center;">Costo</th>
+                    <th width="10%" style="text-align:center;">Valor en $</th>
                     <th width="10%" style="text-align:center;">Vence</th>
                     <th width="10%" style="text-align:center;">Persona</th>
                     <th width="10%" style="text-align:center;">Aplicable</th>
@@ -352,6 +365,7 @@
                                     <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#pqt{{ $paquete->id }}">Ver Detalle</a>
                                 </td>
                                 <td style="vertical-align:middle">{{ number_format($paquete->costo, 2, ",", ".") }}</td>
+                                <td style="vertical-align:middle">{{ number_format($paquete->valorDolar, 2, ",", ".") }}</td>
                                 <td style="vertical-align:middle">{{ date_format(date_create($paquete->vence), 'd-m-Y') }}</td>
                                 <td style="vertical-align:middle">{{ $paquete->persona }}</td>
                                 <td style="vertical-align:middle">{{ $paquete->aplicable }}</td>
@@ -404,12 +418,16 @@
                     </div>
                     <div class="form-group">
                         {!! Form::label('titulo','Título:', ['class' => 'col-sm-2 control-label']) !!}
-                        <div class="col-sm-7">
+                        <div class="col-sm-5">
                             {!! Form::text('titulo', null, ['class' => 'form-control', 'required', 'placeholder' => 'Título del Adicional' ]) !!}
                         </div>
                         {!! Form::label('costo','Costo:', ['class' => 'col-sm-1 control-label']) !!}
-                        <div class="col-sm-2">
+                        <div class="col-sm-1">
                             {!! Form::text('costo', null, ['class' => 'form-control', 'required', 'placeholder' => 'Costo' ]) !!}
+                        </div>
+                        {!! Form::label('valorDolar','$:', ['class' => 'col-sm-1 control-label']) !!}
+                        <div class="col-sm-2">
+                            {!! Form::text('valorDolar', null, ['class' => 'form-control', 'required', 'placeholder' => 'Valor en $' ]) !!}
                         </div>
                     </div>
                     <div class="form-group">

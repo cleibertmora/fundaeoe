@@ -401,6 +401,8 @@ class EventoController extends Controller
 
         $paquete->compatible   = $request->compatible;
 
+        $paquete->valorDolar   = $request->valorDolar;
+
         $paquete->save();
 
         return redirect()->route('evento.extend', $evento->id);
@@ -453,6 +455,8 @@ class EventoController extends Controller
         $etapa->fechaI         = \DateTime::createFromFormat('d/m/Y', $request->fechaI)->format('Y-m-d');
 
         $etapa->fechaF         = \DateTime::createFromFormat('d/m/Y', $request->fechaF)->format('Y-m-d');
+
+        $etapa->valorDolar     = $request->valorDolar;
 
         $etapa->save();
 

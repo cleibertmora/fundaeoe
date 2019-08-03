@@ -112,9 +112,6 @@ class EventosController extends Controller
         $dollar = 1;
         $tasaCambio = $this->getExchangeRate();
 
-
-        dd($tasaCambio);
-
         return view('eventos.evento')
             ->with('evento',$evento)
             ->with('bancos',$bancos)
@@ -345,11 +342,7 @@ class EventosController extends Controller
     public function getExchangeRate()
     {
         $exchange = Exchange::orderBy('id')->first();
-
         $tasa     = $exchange->amount; 
-
-//        dd($tasa);
-
         return $tasa;
     }
 

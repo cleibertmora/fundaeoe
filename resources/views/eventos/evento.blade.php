@@ -353,8 +353,9 @@
                                                     @endif
                                                     {{ ' - ' . $etapa->titulo }}
                                                 <td align="center">{{ $etapa->descuento }}</td>
-                                                <td align="right"> {{ number_format($etapa->descuento * $etapa->costo / 100, 2, ",", ".") }}</td>
                                                 <td align="right"> {{ number_format(($etapa->costo - $etapa->descuento * $etapa->costo / 100), 2, ",", ".") }}</td>
+                                                <td align="right"> {{ number_format($etapa->valorDolar * $tasaCambio, 2, ",", ".") }}</td>
+                                                {{-- <td align="right"> {{ number_format($etapa->descuento * $etapa->costo / 100, 2, ",", ".") }}</td> --}}
                                                 <td align="center">{{ date_format(date_create($etapa->fechaI), 'd-m-Y') }}</td>
                                                 <td align="center">{{ date_format(date_create($etapa->fechaF), 'd-m-Y') }}</td>
                                                 <td align="center" style="background-color: white; border-color: white">
@@ -369,6 +370,8 @@
                     @endif
                 @endforeach
             </div>
+
+            {{-- WORK HERE! CLEIBERT!!! --}}
 
             <h6 align="center">* Los precios indicados son por persona (por participante) y expresados en BsF. Los precios no incluyen I.V.A.</h6>
             <br>
