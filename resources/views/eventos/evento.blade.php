@@ -335,8 +335,8 @@
                                 <table class="table table-bordered table-hover">
                                     <tr class="active">
                                         <th width="30%">Etapa</th>
-                                        <th class="text-center" width="12%">Descuento %</th>
-                                        <th class="text-center" width="12%">Te ahorras</th>
+                                        {{-- <th class="text-center" width="12%">Descuento %</th>
+                                        <th class="text-center" width="12%">Te ahorras</th> --}}
                                         <th class="text-center" width="12%">Precio a pagar *</th>
                                         <th class="text-center" width="12%">Fecha Inicio</th>
                                         <th class="text-center" width="12%">Fecha Límite</th>
@@ -352,8 +352,8 @@
                                                         <span class="label label-danger">No disponible</span>
                                                     @endif
                                                     {{ ' - ' . $etapa->titulo }}
-                                                <td align="center">{{ $etapa->descuento }}</td>
-                                                <td align="right"> {{ number_format(($etapa->costo - $etapa->descuento * $etapa->costo / 100), 2, ",", ".") }}</td>
+                                                {{-- <td align="center">{{ $etapa->descuento }}</td>
+                                                <td align="right"> {{ number_format(($etapa->costo - $etapa->descuento * $etapa->costo / 100), 2, ",", ".") }}</td> --}}
                                                 <td align="right"> {{ number_format($etapa->valorDolar * $tasaCambio, 2, ",", ".") }}</td>
                                                 {{-- <td align="right"> {{ number_format($etapa->descuento * $etapa->costo / 100, 2, ",", ".") }}</td> --}}
                                                 <td align="center">{{ date_format(date_create($etapa->fechaI), 'd-m-Y') }}</td>
